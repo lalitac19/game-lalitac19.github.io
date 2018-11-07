@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+	<head> 
+		<script type = "text/javascript" >
+		function validate() {
+			var value; 
+		var emailReg =	/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		var phoneReg = /^(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|\#)\d{3,4})?$/;
+
+		var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+		//window.alert(document.getElementById("email").value);
+		/*if (document.getElementById("email").value.match( emailReg)) {
+			document.getElementById("cocktail").innerHTML = "VALID EMAIL!";
+			window.alert('Successfully registered!');
+		} else {
+			document.getElementById("cocktail").innerHTML = "INVALID EMAIL";
+			window.alert('Not registered!');
+		}*/ 
+/*if (document.getElementById("phone").value.match( phoneReg)) {
+			value = "VALID PHONE!";
+			window.alert('Successfully registered!');
+		} else {
+			value = "INVALID phone";
+			window.alert('Not registered!');
+		}*/
+
+window.alert(document.getElementById("password").value);
+		if (document.getElementById("password").value.match( passwordReg)) {
+			value = "VALID password!";
+			window.alert('Successfully registered!');
+		} else {
+			value = "bad password, please include 1 upper case letter and 1 number and at least 8 characters long ";
+			window.alert('Not registered!');
+		}
+			document.getElementById("cocktail").innerHTML = value; 
+
+		//window.alert('Successfully registered!');
+	/* document.getElementsByName("fullname");*/
+		}
+		</script>
+	</head> 
+	<body>
+
+		<h1 align="center"><u>Cocktail Life</u></h1>
+<br>
+<p id = "cocktail" align="center"></p>
+
+<br> 
+
+		<p align="center">Please enter the following details to register:</p>
+
+
+		<form>
+			<div id="registration" align="center" /> 
+Full Name: <br>
+<input type = "text" name="fullname" placeholder = "Full name" alt="full name" required="required" >
+<br><br><br>
+Date of Birth: <br>
+<input type = "date" name="DOB" placeholder = "DOB" alt="Date of Birth" required="required">
+<br><br><br>
+Email: <br>
+<input type = "email" id = "email" name="email" placeholder = "Email" alt="email" required="required">
+<br><br><br>
+Phone: <br>
+<input type = "text" id = "phone" name="phone" placeholder = "phone" alt="phone" required="required">
+<br><br><br>
+Password: (at least 8 characters long, including 1 upper case letter and 1 number ) <br>
+<input type = "text" id = "password" name="password" placeholder = "Password" alt="Password" required="required" >
+<br><br><br>
+Short bio about yourself: <br>
+<textarea rows="4" cols="30">
+Enter some information about yourself.
+</textarea>
+<br><br><br>
+<button type="submit" onclick="validate()">Register</button>
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+	<head> 
+		<script type = "text/javascript" >
+		function registered() {
+		window.alert('Successfully registered!');
+	document.getElementById("cocktail").innerHTML = "Margarita";
+		}
+		</script>
+	</head> 
+	<body>
+
+		<h1 align="center"><u>Cocktail Life</u></h1>
+<br>
+<p id = "cocktail" align="center">This will change to a cocktail</p>
+
+<script type = "text/javascript" >
+	
+
+	function squareNum(variableName) {
+		console.log(variableName* variableName);
+		alert( variableName * variableName);
+		document.write(variableName * variableName);
+	} 
+	
+	function sumNum(num1, num2, num3) {
+		alert( num1+num2+num3);
+
+	} 
+var person = {name: "", age:27, occupation: ""};
+
+	function registerObject() {
+		person.name = document.getElementById("name").innerHTML;
+		person.age = document.getElementById("age").innerHTML;
+		person.occupation = document.getElementById("occupation").innerHTML;
+		displayDetails();
+	}
+	function displayDetails() {
+		console.log( person.name, person.age, person.occupation);
+	}
+
+	function objects(){
+		console.log(person.name );
+		console.log(person.age);
+		console.log(person.occupation);
+
+	}
+	function changeObjects(){
+		console.log(person.name);
+		console.log(person.age + 5);
+		console.log(person.occupation = "Senior Developer");
+
+	}
+	function addAge(){
+		person.age=person.age + 1; 
+console.log(person.age);
+	}
+	
+</script>
+
+
+<br>
+		<p align="center">Please enter the following details to register:</p>
+<form>
+	Name: <input id = "name" name="name" type="text"> <br>
+
+	Age: <input id = "age" name="age" type="text"> <br>
+	Occupation <input id = "occupation" name="firstname" type="text"> <br> 
+	<button type="register" onclick="registerObject()">Add Person</button>
+<br> <br> <br>
+
+	<p id = "details" align="center">Your person will show here</p>
+</form>
+
+<button type="submit" onclick="sumNum(8, 67, 8)">add them together</button>
+<button type="submit" onclick="objects()">objects ting</button>
+<button type="submit" onclick="changeObjects()">change objects ting</button>
+<button type="submit" onclick="addAge()">Change age of person</button>
+</div>
+
+
+</body>
+</html>

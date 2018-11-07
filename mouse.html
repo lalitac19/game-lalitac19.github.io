@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+
+
+		<style>#bee {
+			position: absolute;
+		} 
+
+
+		</style>
+
+
+
+		<script type = "text/javascript" >
+			
+			function size() {
+				if(event.ctrlKey) {
+					//alert("d");
+				var bee4 = document.getElementById("bee").style.fontSize;
+				//alert(bee4);
+				var bee1 = bee4.substring(0, bee4.length - 2);
+				var bee2 = parseInt(bee1) + 10;
+				document.getElementById("bee").style.fontSize= bee2 + "px";
+				
+			}
+			if(event.altKey) {
+					//alert("d");
+				var bee4 = document.getElementById("bee").style.fontSize;
+				//alert(bee4);
+				var bee1 = bee4.substring(0, bee4.length - 2);
+				var bee2 = parseInt(bee1) - 10;
+				document.getElementById("bee").style.fontSize= bee2 + "px";
+				
+			}
+			}
+
+			function move() {
+			var bee = document.getElementById("bee");
+			document.addEventListener("mousemove", getMouse); 
+			
+			
+			var beepos = {x:0, y:0};
+
+			setInterval(followMouse, 5);
+		
+			var mouse = {x:0, y:0}; //mouse.x, mouse.y
+		
+			var dir = "right";
+
+			
+
+			function getMouse(e){
+				mouse.x = e.pageX;
+				mouse.y = e.pageY;
+        	//Checking directional change
+        	if(mouse.x > beepos.x){
+         		 dir = "right";
+        	} else {
+          		dir = "left";
+        	}
+		}
+		
+		function followMouse(){
+			//1. find distance X , distance Y
+			var distX = mouse.x - beepos.x;
+			var distY = mouse.y - beepos.y;
+			//Easing motion
+       //Progressive reduction of distance 
+			beepos.x += distX/5;
+			beepos.y += distY/2;
+			
+			bee.style.left = beepos.x + "px";
+			bee.style.top = beepos.y + "px";
+		}
+	}
+		</script>
+	</head> 
+	<body onmousemove="move()" onkeydown="size()">
+
+		
+
+<br>
+		<div id = "bee" align="center" style="font-size: 17px"> HHEEEYYYYYY</div>
+<br><br><br>
+Background colour:
+ <input id = "background" type="text" "> <br>
+ <br><br><br>
+
+<input id = "age" name="age" type="text"> <br>
+<br><br><br>
+	 <input id = "occupation" name="firstname" type="text"> <br> 
+
+<br> 
+
+
+
+
+
+<button type="submit" onclick="addAge()">Change visibility</button>
+
+
+
+</body>
+</html>

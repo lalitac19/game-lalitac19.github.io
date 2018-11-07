@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<style type="text/css">#spaceship {
+			position: absolute;
+		}
+		#cloud {
+			position: absolute; }
+		 </style>
+
+		<script type = "text/javascript" >
+
+			function move() {
+			var ship = document.getElementById("spaceship");
+			document.addEventListener("mousemove", getMouse); 
+			var beepos = {x:50, y:50};
+			setInterval(followMouse, 5);
+			var mouse = {x:0, y:0}; //mouse.x, mouse.y
+			
+
+			function getMouse(e){
+				mouse.x = e.pageX;
+				mouse.y = e.pageY;
+			}
+		
+		function followMouse(){
+			//1. find distance X , distance Y
+			var distX = mouse.x - beepos.x;
+			var distY = mouse.y - beepos.y;
+			//Easing motion
+       		//Progressive reduction of distance 
+			beepos.x += distX/5;
+			beepos.y += distY/2;
+			
+			ship.style.left = beepos.x + "px";
+			ship.style.top = beepos.y + "px";
+		}
+
+		setInterval(movingClouds, 200);
+	}
+
+			function shoot(e) {
+				//var bullet = document.getElementById("bullet");
+			//	var bulletpos = {x:e.clientX, y:e.clientY}
+			}
+
+			function movingClouds() {
+				var cloud = document.getElementById("cloud");
+				cloud.style.left = (window.innerWidth/2)+"px";
+				var yPos = cloud.offsetTop;
+				var step=1; // Change this step value
+				//var cloudPos = {x:xPos, y:yPos };
+				if(yPos < window.innerHeight ){
+					yPos= yPos +step;
+					cloud.style.top = yPos + "px"; // vertical movmen
+				} else {
+					cloud.style.visibility = "hidden";
+				}
+				
+			}
+
+
+		</script>
+	</head> 
+	<body  onmousemove="move()"  >
+
+<div id="spaceship"> 
+  <img src="img/space.png" alt="spaceship"  />
+</div>
+<div id="cloud"> 
+  <img src="img/cloud.png" alt="cloud"  />
+</div>
+</body>
+</html>
